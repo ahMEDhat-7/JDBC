@@ -12,6 +12,7 @@ public class DBConnection {
     private static final String password = "postgres";
 
     private static Connection connection;
+    private DBConnection(){}
     public static Connection getDBConnection() {
 
         try{
