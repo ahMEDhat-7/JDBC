@@ -1,6 +1,7 @@
 package org.example;
 
 
+import org.example.shapes.DrawShapes;
 import org.example.shapes.Shape;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -13,10 +14,12 @@ public class Main {
         Shape myCircle = container.getBean("circle", Shape.class);
         Shape mySquare = container.getBean("square",Shape.class);
 
+        DrawShapes myDraw = container.getBean("drawShape" , DrawShapes.class);
+
         myCircle.draw();
-        System.out.println(myCircle.getArea());
         mySquare.draw();
-        System.out.println(mySquare.getArea());
+
+
 
 
     }

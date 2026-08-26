@@ -2,8 +2,11 @@ package org.example.shapes;
 
 
 public class Square implements Shape{
+    private final DrawShapes drawShapes;
+
     private double side;
-    public Square() {
+    public Square(DrawShapes drawShape) {
+        this.drawShapes = drawShape;
     }
 
     public void setSide(double side) {
@@ -12,7 +15,7 @@ public class Square implements Shape{
 
     @Override
     public void draw() {
-        System.out.println("Square drawing...");
+        this.drawShapes.draw("Square");
     }
 
     @Override

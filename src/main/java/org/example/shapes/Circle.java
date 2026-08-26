@@ -1,8 +1,11 @@
 package org.example.shapes;
 
 public class Circle implements Shape{
+    private final DrawShapes drawShapes;
     private double radius;
-    public Circle() {
+
+    public Circle(DrawShapes drawShape) {
+        this.drawShapes = drawShape;
     }
 
     public void setRadius(double radius) {
@@ -11,7 +14,7 @@ public class Circle implements Shape{
 
     @Override
     public void draw() {
-        System.out.println("Circle drawing...");
+        this.drawShapes.draw("Circle");
     }
 
     @Override
