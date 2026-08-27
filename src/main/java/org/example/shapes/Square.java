@@ -2,11 +2,14 @@ package org.example.shapes;
 
 
 public class Square implements Shape{
-    private final DrawShapes drawShapes;
+    private DrawShapes drawShapes;
 
+    public void setDrawShapes(DrawShapes drawShapes){
+        this.drawShapes = drawShapes;
+    }
     private double side;
-    public Square(DrawShapes drawShape) {
-        this.drawShapes = drawShape;
+    public Square() {
+
     }
 
     public void setSide(double side) {
