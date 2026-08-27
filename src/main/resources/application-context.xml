@@ -9,21 +9,28 @@
            http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+    <context:property-placeholder location="classpath:application.properties" />
 
     <bean id="circle" class="org.example.shapes.Circle">
         <property name="radius" value="2" />
-        <constructor-arg ref="drawShape" />
+        <constructor-arg ref="databaseOperations" />
 
     </bean>
 
     <bean id="square" class="org.example.shapes.Square">
-        <property name="drawShapes" ref="drawShape"/>
+        <property name="databaseOperations" ref="databaseOperations"/>
         <property name="side" value="2" />
     </bean>
 
     <bean id="drawShape" class="org.example.shapes.DrawShapes">
     </bean>
 
+    <bean id="databaseOperations" class="org.example.config.DatabaseOperations">
+        <property name="url" value="${database.url}"/>
+        <property name="username" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
+
+    </bean>
 
 </beans>
 

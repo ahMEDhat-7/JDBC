@@ -1,11 +1,13 @@
 package org.example.shapes;
 
 
-public class Square implements Shape{
-    private DrawShapes drawShapes;
+import org.example.config.DatabaseOperations;
 
-    public void setDrawShapes(DrawShapes drawShapes){
-        this.drawShapes = drawShapes;
+public class Square implements Shape{
+    private DatabaseOperations databaseOperations;
+
+    public void setDatabaseOperations(DatabaseOperations databaseOperations){
+        this.databaseOperations = databaseOperations;
     }
     private double side;
     public Square() {
@@ -17,8 +19,8 @@ public class Square implements Shape{
     }
 
     @Override
-    public void draw() {
-        this.drawShapes.draw("Square");
+    public String draw() {
+        return "Square";
     }
 
     @Override

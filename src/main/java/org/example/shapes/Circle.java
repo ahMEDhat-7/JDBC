@@ -1,22 +1,25 @@
 package org.example.shapes;
 
+import org.example.config.DatabaseOperations;
+
 public class Circle implements Shape{
-    private final DrawShapes drawShapes;
+    private final DatabaseOperations databaseOperations;
     private double radius;
 
-    public Circle(DrawShapes drawShape) {
-        this.drawShapes = drawShape;
+    public Circle(DatabaseOperations databaseOperations) {
+        this.databaseOperations = databaseOperations;
     }
 
     public void setRadius(double radius) {
         this.radius = radius;
     }
 
-    @Override
-    public void draw() {
-        this.drawShapes.draw("Circle");
-    }
 
+
+    @Override
+    public String draw() {
+        return "Circle";
+    }
     @Override
     public double getArea() {
         return Math.PI * Math.pow(this.radius,2);
