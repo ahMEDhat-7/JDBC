@@ -21,17 +21,24 @@
     </bean>
 
     <!-- Create Circle Bean -->
-    <bean id="circle" class="org.example.shapes.Circle">
+    <bean id="circle" class="org.example.shapes.Circle" scope="singleton">
         <property name="radius" value="2" />
         <constructor-arg ref="databaseOperations" />
 
     </bean>
+    <bean id="connectToDbCircle" class="org.example.shapes.Circle" init-method="connectToDb" />
+    <bean id="disconnectToDbCircle" class="org.example.shapes.Circle" destroy-method="disconnectToDb" />
+
+
 
     <!-- Create Square Bean -->
     <bean id="square" class="org.example.shapes.Square">
         <property name="databaseOperations" ref="databaseOperations"/>
         <property name="side" value="2" />
     </bean>
+    <bean id="connectToDbSquare" class="org.example.shapes.Square" init-method="connectToDb" />
+    <bean id="disconnectToDbSquare" class="org.example.shapes.Square" destroy-method="disconnectToDb" />
+
 
     <!-- Create DrawShape Bean -->
     <bean id="drawShape" class="org.example.shapes.DrawShapes">

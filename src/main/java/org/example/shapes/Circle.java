@@ -3,8 +3,9 @@ package org.example.shapes;
 import org.example.config.DatabaseOperations;
 
 public class Circle implements Shape{
-    private final DatabaseOperations databaseOperations;
+    private  DatabaseOperations databaseOperations;
     private double radius;
+    public Circle(){}
 
     public Circle(DatabaseOperations databaseOperations) {
         this.databaseOperations = databaseOperations;
@@ -14,8 +15,12 @@ public class Circle implements Shape{
         this.radius = radius;
     }
 
-
-
+    public void connectToDb(){
+        System.out.println("Connecting to Circle Database...");
+    }
+    public void disconnectToDb(){
+        System.out.println("Disconnecting to Circle Database...");
+    }
     @Override
     public String draw() {
         return "Circle";

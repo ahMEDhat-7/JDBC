@@ -18,6 +18,12 @@ public class Square implements Shape{
         this.side = side;
     }
 
+    public void connectToDb(){
+        System.out.println("Connecting to Square Database...");
+    }
+    public void disconnectToDb(){
+        System.out.println("Disconnecting to Square Database...");
+    }
     @Override
     public String draw() {
         return "Square";
