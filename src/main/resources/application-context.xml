@@ -26,8 +26,10 @@
         <constructor-arg ref="databaseOperations" />
 
     </bean>
-    <bean id="connectToDbCircle" class="org.example.shapes.Circle" init-method="connectToDb" />
-    <bean id="disconnectToDbCircle" class="org.example.shapes.Circle" destroy-method="disconnectToDb" />
+<!--    <bean id="connectToDbCircle" class="org.example.shapes.Circle" init-method="connectToDb" />-->
+<!--    <bean id="disconnectToDbCircle" class="org.example.shapes.Circle" destroy-method="disconnectToDb" />-->
+    <bean id="connect-disconnect-circle" class="org.example.shapes.Circle" init-method="connectToDb" destroy-method="disconnectToDb" />
+
 
 
 
@@ -36,9 +38,9 @@
         <property name="databaseOperations" ref="databaseOperations"/>
         <property name="side" value="2" />
     </bean>
-    <bean id="connectToDbSquare" class="org.example.shapes.Square" init-method="connectToDb" />
-    <bean id="disconnectToDbSquare" class="org.example.shapes.Square" destroy-method="disconnectToDb" />
-
+<!--    <bean id="connectToDbSquare" class="org.example.shapes.Square" init-method="connectToDb" />-->
+<!--    <bean id="disconnectToDbSquare" class="org.example.shapes.Square" destroy-method="disconnectToDb" />-->
+    <bean id="connect-disconnect-square" class="org.example.shapes.Square" init-method="connectToDb" destroy-method="disconnectToDb" />
 
     <!-- Create DrawShape Bean -->
     <bean id="drawShape" class="org.example.shapes.DrawShapes">
