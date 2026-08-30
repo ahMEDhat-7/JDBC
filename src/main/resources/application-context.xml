@@ -19,6 +19,9 @@
         <property name="password" value="${database.password}"/>
 
     </bean>
+    <bean id="dataBaseConnection" class="org.example.config.DataBaseConnection">
+
+    </bean>
 
     <!-- Create Circle Bean -->
     <bean id="circle" class="org.example.shapes.Circle" scope="singleton">

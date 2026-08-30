@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.config.DataBaseConnection;
 import org.example.designpatterns.Singleton;
 //
 //import org.example.config.DatabaseOperations;
@@ -8,41 +9,27 @@ import org.example.shapes.Shape;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 public class Main {
     public static void main(String[] args) {
 
-        ClassPathXmlApplicationContext container = new ClassPathXmlApplicationContext("application-context.xml");
-        Shape myCircle = container.getBean("circle", Shape.class);
-        Shape mySquare = container.getBean("square", Shape.class);
+        try {
+            Connection connection = DataBaseConnection.getInstance();
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users");
+            ResultSet rs=  statement.executeQuery();
+            int count =10;
+            while (rs.next() && count != 0){
+                System.out.printf("%s:%s:%s\n",rs.getString("id"),rs.getString("first_name"),rs.getString("last_name"));
+                --count;
+            }
 
-        System.out.println( myCircle.draw());
-        System.out.println( mySquare.draw());
-
-//        System.out.println(myCircle1);
-//        System.out.println(myCircle2);
-//        System.out.println(myCircle1.equals(myCircle2));
-//        Shape mySquare = container.getBean("square",Shape.class);
-
-//        DrawShapes myDraw = container.getBean("drawShape" , DrawShapes.class);
-//
-//        myCircle.draw();
-//        mySquare.draw();
-
-//
-//        DatabaseOperations db = container.getBean("databaseOperations",DatabaseOperations.class);
-//        db.save(myCircle);
-//        db.save(mySquare);
-
-
-//        Singleton singletonOne = Singleton.getInstance();
-//        System.out.println(singletonOne);
-//        Singleton singletonTwo = Singleton.getInstance();
-//        System.out.println(singletonTwo);
-
-
-
-        container.close();
-
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

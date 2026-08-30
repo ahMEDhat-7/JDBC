@@ -32,10 +32,4 @@ public class DatabaseOperations {
     public void setUsername(String username) {
         this.username = username;
     }
-    public void save (Shape shape){
-
-        System.out.printf("Connecting to Database: %s\nusername=%s | password=%s%n", this.url,this.username,this.password);
-        System.out.printf("----------------%s saved-------------\n\n",shape.draw());
-
-    }
 }
